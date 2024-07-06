@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 const Counter = () => {
   const [count, setCount] = useState(0);
+  const [value, setValue] = useState("");
   return (
     <div>
       <button
@@ -19,6 +20,13 @@ const Counter = () => {
         decriment
       </button>
       <p>{count}</p>
+      <input
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+      ></input>
+      <h3>{value}</h3>
     </div>
   );
 };
