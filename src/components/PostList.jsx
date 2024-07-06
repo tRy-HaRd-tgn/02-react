@@ -1,6 +1,6 @@
 import React from "react";
 import PostItem from "./PostItem";
-function PostList({ posts, title }) {
+const PostList = ({ posts, title }) => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
@@ -9,5 +9,5 @@ function PostList({ posts, title }) {
       ))}
     </div>
   );
-}
+};
 export default PostList;
