@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
-
 import PostList from "./components/PostList";
-import MyButton from "./UI/button/Mybutton";
 import "./styles/App.css";
-import MyInput from "./UI/input/MyInput";
+import MySelect from "./UI/select";
 import PostForm from "./components/PostForm";
 function App() {
   const [posts, setPosts] = useState([
@@ -20,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <PostForm create={createNewPost}></PostForm>
+      <MySelect></MySelect>
       <PostList
         remove={removePost}
         posts={posts}
