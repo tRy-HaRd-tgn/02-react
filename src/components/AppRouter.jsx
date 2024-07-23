@@ -1,18 +1,29 @@
 import { Route, Routes } from "react-router-dom";
 import Error from "../pages/Error";
-import { routes } from "../router";
-const AppRouter =() =>  {
+import { privateRoutes, publicRoutes, routes } from "../router";
+import { useContext } from "react";
+import { AuthContext } from "../context";
+const AppRouter = () => {
+  const { isAuth, setIsAuth } = useContext(AuthContext);
   return (
     <Routes>
-      {routes.map((route) => (
-        <Route
-          element={route.component}
-          path={route.path}
-          exact={route.exact}
-        />
-      ))}
+      {isAuth
+        ? privateRoutes.map((route) => (
+            <Route
+              element={route.component}
+              path={route.path}
+              exact={route.exact}
+            />
+          ))
+        : publicRoutes.map((route) => (
+            <Route
+              element={route.component}
+              path={route.path}
+              exact={route.exact}
+            />
+          ))}
       <Route path="*" element={<Error></Error>}></Route>
     </Routes>
   );
-}
-export default AppRouter
+};
+export default AppRouter;
